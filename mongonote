@@ -1,0 +1,46 @@
+What is mongo DB
+      -Mongodb open-source ,document-oriented No-Sql database management system
+        It’s store data in the from of document (json document)
+        We use mongo db because it’s flexibility scalability and performance in handling unstructured or  semi-structured data
+         It’s develop by 10gen and then change name to mango db(mongodb bulid by mongodb company)
+          Company estabilist in 2007 and mongodb Frist version 2009
+Difference between mongo and sql
+Sql                                                                      mongodb(nosql)
+Relational database                                                    non-relational database
+Structured tables store in rows and col                      provide flexibility In data (kind of  schemaless)
+Suitable for application with well defined schemas                   ideal for dynamic models
+Use in E-commerne platform,hr management                        use in social media platfroms,gaming
+Ex: MySql,PostgreSQl,Oracle                                            mongodb,cassandra ,redias
+     
+                     Col                                                         JSON format
+           Student            subject
+     Row      1                     math 
+              2                      chem
+
+Mongo terminologies
+Database
+-	Collection
+        -  document
+
+
+
+Key feature of mongodb:-
+
+Flexible schema design
+Scalability and performance
+Document-oriented storage
+Dynamic queries
+Aggregation framework
+Open source and community
+
+
+how mongo db works?
+    frontend ->  node js -> mongodb server -> storage engine(wired tiger) ->database
+
+    storage engine(wiredtiger)
+          do read and write data files
+          we write in json format but data store in bson format(binary represenatation of json)
+          this convertion is done by storage engine 
+          bson use because it's prefromance efficiency,imporved data
+
+    

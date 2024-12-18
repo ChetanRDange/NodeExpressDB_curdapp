@@ -1,0 +1,460 @@
+it's not programming language 
+it's not technology
+it's not framework
+it's not labirary
+it's not softwear
+it's javascript runtime environment
+
+we can make backend with js so we have to use node js 
+node js made by --ryan dehl
+ it's made on chrome v8 engine 
+     so V8 engine code is in C++ and ryan wrap this open scourse code with js code ,so when js code sent to chrome it convert the to C++ and then excute and thats how server works
+
+js code ---- js warper ----c++
+node js nothing but this wraper and V8 engine
+That perticular time when node working it give environment and that environment called runtime environment
+
+            ---------------
+ node js--->| js wraper   |
+            |and v8 engine|
+            --------------
+
+
+npm it's like playstore
+     it's use for package downloads 
+
+npm working  
+   npm initalization
+   npm init  ---> package.json ---> all documenet and requierment of project
+
+   npm init -y skiping the process
+
+
+---------------------------
+
+to use module
+module:- which is already install in core node js 
+ we use callback and sync api
+ const fs = require("fs");
+
+-----------------
+fs module
+
+write file
+appendfile
+copyfile
+rename
+unlink
+
+
+writeFile:-
+if file not exites it will create file and insert the data
+other wise it will direct  insert data into file but the frist data will delete
+
+fs.writeFile(file,data[,options],callback);
+writeFile("new.txt","this is data[,optional]",function(err))
+
+ex:-
+fs.writeFile("new.txt","this is new file data",function(err)
+{
+    if(err)console.log(err);
+    else console.log("Done................!")
+})
+
+readdir:-
+readdir("path[,option],callback)
+ fs.readdir("./files",function(req,files){
+        console.log(files);
+    })
+and the files is in files variable
+
+
+
+appendFile:-
+it's add mew data into the file without deleting frist data
+fs.appendFile(path,data[,options],callback)
+
+ex:-
+fs.appendFile("new.txt","   so what should i do",function(err)
+{
+    if(err)console.log(err);
+    else console.log("Done................!")
+})
+
+
+rename:-
+it's use to change file name
+
+fs.rename(odd path,new path ,callback)
+ex:-
+fs.rename("new.txt","hello.txt",function(err)
+{
+    if(err)console.log(err)
+    else console.log("name change....!");
+})
+
+
+copyFile:-
+it's copy the file to the src to destination
+fs.copyFile(src,dest[,mode],callback)
+
+ex:-
+fs.copyFile("hello.txt","copy.txt",function(err){
+    if(err)console.log(err.message)//to get what is error actully
+    else console.log(" Copy Done......!")    
+})
+
+unlink:-
+it's use to remove file from the given path
+fs.unlink(path,callback)
+ex:-
+fs.unlink("hello.txt",function(err){
+    if(err)console.log(err)
+    else  console.log("removed....!")
+})
+
+rmdir:-
+but the directory should be empty
+fs.rmdir(path,[,options],callback)
+ex:-
+fs.rm("./file",function(err)
+{
+    if(err) console.log(err);
+    else console.log("removed");
+})
+
+
+but if dir not empty use {recursive:true}
+so we can remove them also
+ex:-
+fs.rmdir("./file",{recursive:true},function(err)
+{
+    if(err) console.log(err);
+    else console.log("removed");
+})
+
+
+
+http and https
+http -protocol (rule)
+yahi protocol hai yo rule hai jisko follow kare bina app internet pe nahi kuch bhej sakte ho naa hi kush manga sakte ho
+this rule have to follow to have internet 
+
+http.createServer([options][,requestListener])
+
+
+
+
+part 3
+npm understanding
+npm:- node package manager
+module:- which is already install in core node js 
+package:-which is install by npm called package
+
+install 
+        npm install package_name
+        npm i package_name
+
+installing perticular version
+          npm install package_name@version
+          npm i accessibility@3.0.9
+
+
+
+
+
+uninstall
+            npm uninstall package_name (u can't writen not shortcut')
+
+
+
+node module
+            node modules show the package you install and their dependancies 
+
+
+ npm work
+      install ,uninstall and manages the dependencies and devdependencies of the application
+
+ dependancy
+   packages and packages dependancies
+
+   devdependencies:-a packages which is only use in development but when we deploy app  then we don't use this packages
+                    devdependencies means the packages we use for only development and when we deploy then there no use
+
+script 
+the code in json script part
+  default 
+      npm start
+      npm test
+
+ex:-
+"scripts": {
+      "start":"node ./script.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+
+
+
+   costom 
+   "scripts":{
+    "chacha":"echo \" data \" "
+    "start":"node/script.js",
+    "test":"echo \"Error: no test specified\" && exit 1"
+   }
+    we have use run in command
+      npm run chacha
+      npm run gf   
+
+
+
+   run :- find it in the script
+
+
+part 4
+express js framework
+it's an npm package
+it's framework
+   framework give you a flow that you have to follow and we can do as we do in that flow
+
+
+labirary 
+   give you tools to give
+
+
+express js manages from receiving the request and giving respose 
+
+send
+for sending respose to webpages we use send
+res.send
+
+
+
+
+const express = require ("express");
+express() by default it's a function  and return a value that what express can do
+
+so we create veriable to use this functions of express
+const app = express();
+
+
+routes:-
+   in url except the domain name after that part called routes
+
+   google.com/contect   <-----route
+
+
+app.get:-
+app.get(route,requesthandler)
+app.get(route,function)
+
+
+
+listen:-
+have to listen the request and port number can be anything
+app.listen(3000)
+
+
+nodemon 
+   when you install this then you don't have to restart the server 
+
+if not run then
+   npx nodemon express.js
+
+middleware
+   if you want to perfrom anything befour route excutes that called middleware
+
+   after the request get accepted by server and in the process of accepted and request go to route if we stop the request and  perfrom some task this  task will called as middleware
+
+
+there two type of apply middleware
+app.use()
+   In every request or url we try to access this app.use() process every time 
+it's process every time we access any url 
+
+app.use(function(req,res,next)
+{
+    
+})
+next()
+     when we want to forward the code
+     it's work is that after the code when we want to forward then we use next 
+
+
+
+reuqest and respose  handling
+    frontend request and backend respose
+
+
+error handling
+copy this code 
+default error handler
+    app.use(function(err,req,res,next){
+   console.log(err,stack)
+   res.status(500).send("Somthing broke"); 
+     })
+
+
+form handling and working with the forms
+
+handling backend process of forms and making sure the data coming from any frontend library,framework ,template engine,we still handle it at the backend 
+
+
+session cookie
+    we can store any data on frontend browser and when we request on backend then the frontend saved data automatically go to backend
+
+session 
+   log-in and log-out
+   
+
+cookie :-
+  data saved on browser
+
+front end send data to server but it's get in encoded from 
+
+and this code convrt json data into reable format
+    app.use(express.json())//to use front end data at backend
+    app.use(express.urlencoded({extended:true})); //  to usw fromdata  at the backend
+
+
+part 6
+initilzing project:-
+
+setting up parsers or form
+
+    app.use(express.json());
+    app.use(express.urlencoded({extended : true}))
+
+
+setting up ejs for ejs pages
+    ejs=(embedded javasript) showing frontend and can perform  calculation and dynamic stuff 
+    it's use javascript code in your html templates to generate dynamic content
+
+steps;
+      1)install ejs from npm
+      2)steup ejs as viewengine
+      3)app.set('view engine','ejs');//this line use to show what will out backend (render)show it's shows ejs pages 
+      4)to use ejs to have to create views folder and then the ejs files in  it and then render the file  -->
+      
+      
+        app.set('view engine','ejs'); it this ejs is extension if we give here we don't have to give in render section
+        res.render("index") 
+        for sending data to render file 
+        ex:-
+          res.render("index" ,{files:files}) 
+            res.render("show" ,{filename:req.params.filename , data:req.params.data} )
+            we are sending files data as files variable
+       rules
+           we have to make views folder and we have to make files in it 
+
+
+      5)
+      to calculate on pages <%= 2+2 %>
+      <%= content  %>
+       <h1>Chetan.....:(! marks <%= 2+2 %></h1>
+         output:-     chetan.....:(! marks 4 
+        use = when you want to print otherwise not
+      
+
+setting up public static files
+     app.set(express.static(path.join(__dirname,'public')));
+          this line shows all static file are in public folder 
+           static files:- images,videos, stylesheet,frontend javascript
+
+      it public directory 
+      /public
+        /stylesheet
+          style.css
+        /javescripts
+          script.js
+
+
+        link them in ejs file
+        remove public folder because we add app.set(express.static("public))
+         <link rel="stylesheet" href="/stylesheets/style.css">
+         script src="/javascripts/script.js"></script>
+
+
+
+
+
+dynamic routing
+   dynamic routing 
+   how to get data coming from fronend at backend route
+
+  any url can be dynamic and if url is localhost:3000/profile/harsh that the harsh part can be dynamic 
+  we just have to add : in front of them (:harsh) in route
+
+  and by this if we add any thing like
+  localhost:3000/profile/:rushi
+  localhost:3000/profile/:chetan
+    it's will print same result 
+
+res.get("/profile/:harsh," function(req,res){ //harsh is variable
+      req.params.harsh;it's have to same
+      req.params it's an object and handle it like object
+      res.send(req.params.harsh);
+})        
+
+
+app.get("/profile/:vheteah/:ch",function(req,res){
+   req.params.vheteah;
+    res.send(`welcome ,${req.params.vheteah} of the age:${req.params.ch}`)
+})
+
+
+
+req.params.username 
+req.params means anything infront of them have (:) colen
+
+
+
+part 7
+      we're marking a notes taking webapp
+
+
+
+
+part-10
+date storage
+  a area where we store user info
+
+type of databases
+sql :data in rows and  columns data in tables form data
+
+no-sql: in object format 
+
+why to use mongodb
+ inoder to store data
+
+backend have two server
+  application server-node server
+
+  database server-mongodb
+
+
+
+  database -> collection -> document 
+   
+   
+   
+  code                database
+  -----------------------------------
+  mongoose.connect -> database create
+  model create     ->  collection
+  CREATE code      ->  document
+
+
+  mongoose use to communication on node js and mongoose
+          this is obm
+
+
+  orm = oject relational mapping
+  odm = object document mapping
+
+schema 
+  what will every user details have 
+  what will a your have
+
+
+
+
